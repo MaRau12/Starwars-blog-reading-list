@@ -8,6 +8,8 @@ import "../../styles/demo.css";
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
+	
+
 	return (
 		<div className="container">
 			<ul className="list-group">
