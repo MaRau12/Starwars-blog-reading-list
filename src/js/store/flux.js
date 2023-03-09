@@ -10,11 +10,17 @@ const getState = ({ getStore, getActions, setStore }) => {
       
     
 		store: {
-		demo:
+			
+		        characters: [],
+				planets: [],
+				vehicles: [],
+				characterInfo: [],
+   
+		
+			demo:
 			[
 	
-		
-   
+				
 
 				{
 					title: "FIRST",
@@ -35,12 +41,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 
-           LoadPeople: () => {
-              fetch("https://www.swapi.tech/api/people/1")
-              .then(res => res.json())
-              .then(data => console.log(data))
-              .catch(err => console.error(err))
+			
+			showCharacterInfo: (id) => {
+				fetch("https://www.swapi.tech/api/people/" + id)
+				  .then((resp) => resp.json())
+				  .then((data) =>
+				  	
+					setStore({ characterInfo: data.result.properties })
+				  )
+				  .catch((error) => console.log(error));
+			},
+
+
+
+           LoadSomeData: () => {
+
+		   fetch("https://www.swapi.tech/api/people")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ characters: data.results }))
+          .catch((error) => console.log(error));
+
+           fetch("https://www.swapi.tech/api/planets")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ planets: data.results }))
+          .catch((error) => console.log(error));
+
+		  fetch("https://www.swapi.tech/api/vehicles")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ vehicles: data.results }))
+          .catch((error) => console.log(error));
+
+		 // {…store, people: data}
            },
+
+		   
 			
 			changeColor: (index, color) => {
 				//get the store
@@ -51,12 +85,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const demo = store.demo.map((elm, i) => {
 					if (i === index) elm.background = color;
 					return elm;
+			
 				});
 
 				//reset the global store
 				setStore({ demo: demo });
 			}
-		}
+	    }
 	};
 };
 
