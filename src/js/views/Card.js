@@ -18,6 +18,7 @@ function Cards(props) {
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>
        text
+       {props.id}
         </Card.Text>
         <Link to="/demo"> 
          <Button variant="primary">Go somewhere</Button>

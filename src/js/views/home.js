@@ -45,6 +45,7 @@ export const Home = () => {
          )
        })}  
         
+        <Characters></Characters>
 		 </div>
 	   
 
