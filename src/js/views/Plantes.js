@@ -22,6 +22,9 @@ export const Planets = () => {
             <div className="row-cols-2">
              <h1> show something {params.id} </h1>          
                       <h1>{store.planetInfo.name}</h1>
+
+                      <h1>{store.planetInfo.climate}</h1>
+                
                         
                     
             </div>

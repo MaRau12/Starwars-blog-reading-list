@@ -22,7 +22,7 @@ export const Vehicles = () => {
             <div className="row-cols-2">
              <h1> show something {params.id} </h1>          
                       <h1>{store.vehicleInfo.name}</h1>
-                        
+                      <h1>{store.vehicleInfo.manufacturer}</h1>
                     
             </div>
             

@@ -22,8 +22,8 @@ export const Characters = () => {
             <div className="row-cols-2">
              <h1> show something {params.id} </h1>          
                       <h1>{store.characterInfo.name}</h1>
-                        
-                    
+                      <h1>{store.characterInfo.gender}</h1>
+                      <h1>{store.characterInfo.height}</h1>
             </div>
             
 

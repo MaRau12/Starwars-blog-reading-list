@@ -43,7 +43,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			
+            favouriteHandler: (id) => {
+             const store = getStore()
+			 const favourites = store.favourites
 
+
+			},
 			
 			showCharacterInfo: (id) => {
 				fetch("https://www.swapi.tech/api/people/" + id)
