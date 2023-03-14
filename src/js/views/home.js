@@ -19,7 +19,8 @@ export const Home = () => {
  <div className="row">  
       {store.characters.map((char, index) =>{
          return(             
-              <Cards key={index} name={char.name} id={char.uid} />                
+              <Cards key={index} name={char.name} id={char.uid} url={"characters"}
+              />                
             )
       })}
         <Cards />
@@ -30,7 +31,7 @@ export const Home = () => {
        <div className=" row"> 
        {store.planets.map((plan, i) =>{
          return(
-             <Cards key={i} name={plan.name} id={plan.uid}/>
+             <Cards key={i} name={plan.name} id={plan.uid} url={"planets"}/>
          )
        })}   
          
@@ -41,7 +42,7 @@ export const Home = () => {
 
        {store.vehicles.map((vec, j) =>{
          return(
-            <Cards key={j} name={vec.name} id={vec.uid}/>
+            <Cards key={j} name={vec.name} id={vec.uid} url={"vehicles"}/>
          )
        })}  
         

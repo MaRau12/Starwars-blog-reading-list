@@ -21,7 +21,7 @@ function Cards(props) {
        {props.id}
         </Card.Text>
         <Link to= {{
-                pathname: `/characters/${props.id}`
+                pathname: `/${props.url}/${props.id}`
               }}>
          <Button variant="primary">Go somewhere</Button>
          

@@ -55,6 +55,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .catch((error) => console.log(error));
 			},
 
+			showPlanetInfo: (id) => {
+				fetch("https://www.swapi.tech/api/planets/" + id)
+				  .then((resp) => resp.json())
+				  .then((data) =>
+				  	
+					setStore({ planetInfo: data.result.properties })
+				  )
+				  .catch((error) => console.log(error));
+			},
+
+
+			showVehicleInfo: (id) => {
+				fetch("https://www.swapi.tech/api/vehicles/" + id)
+				  .then((resp) => resp.json())
+				  .then((data) =>
+				  	
+					setStore({ vehicleInfo: data.result.properties })
+				  )
+				  .catch((error) => console.log(error));
+			},
+
 
 
            LoadSomeData: () => {
