@@ -20,7 +20,9 @@ function Cards(props) {
        text
        {props.id}
         </Card.Text>
-        <Link to="/demo"> 
+        <Link to= {{
+                pathname: `/characters/${props.id}`
+              }}>
          <Button variant="primary">Go somewhere</Button>
          
         </Link>

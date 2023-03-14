@@ -1,21 +1,27 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import Cards from "./Card.js";
+import { useParams } from "react-router-dom";
 
 export const Characters = () => {
-   // const params = useParams();
-    const {store, actions} = useContext(Context)
-    
-//actions.showCharacterInfo(id)
-     
-   
 
+  const params = useParams();
+  
+  useEffect(() => {
+  
+   if (params.id) {
+    actions.showCharacterInfo(params.id);
+  }
+}, [params.id]);     
+
+ 
+ 
+    const {store, actions} = useContext(Context)
+  
     return (
         <div className="container">
             <div className="row-cols-2">
-             <h1> show something </h1>          
-                      
+             <h1> show something {params.id} </h1>          
+                      <h1>{store.characterInfo.name}</h1>
                         
                     
             </div>
@@ -27,12 +33,3 @@ export const Characters = () => {
 
 }
 
- 
-/*
-    useEffect(() => {
-      if (params.theid) {
-        actions.showCharacterInfo(params.theid);
-      }
-    }, [params.theid]); 
-
-    */
