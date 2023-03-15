@@ -27,7 +27,7 @@ function Cards(props) {
          
         </Link>
        
-        <Button variant="outline-warning"> <i className="fal fa-heart"></i> </Button>{' '}
+        <Button variant="outline-warning"> <i className="fal fa-heart" onClick={() => favouriteHandler(item)}></i> </Button>{' '}
       </Card.Body>
     </Card>
  

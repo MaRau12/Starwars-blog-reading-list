@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -43,10 +44,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			
-            favouriteHandler: (id) => {
+            favouriteHandler: (item) => {
              const store = getStore()
 			 const favourites = store.favourites
-
+			 
+			 setFavourites(current => [...current, item]);
 
 			},
 			
