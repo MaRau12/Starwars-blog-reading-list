@@ -1,12 +1,15 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { Context } from "../store/appContext.js";
+import {AiFillDelete} from 'react-icons/ai'
+
 
 export const Navbar = () => {
 
-
+	const { store, actions } = useContext(Context);
 
 	
 
@@ -16,7 +19,16 @@ export const Navbar = () => {
 			
 				
 					<DropdownButton id="dropdown-basic-button" title="Dropdown button" className="" >
-				<Dropdown.Item > This item </Dropdown.Item>
+
+						{store.favourites.map((fav, i)=>{
+
+                         return(    
+							 <Dropdown.Item key={i} >   <span>{fav.name} </span> 
+							 <AiFillDelete onClick={ ()=> actions.removeFavourite(i)}></AiFillDelete>
+							 </Dropdown.Item>   
+							 )}
+							 )}
+				
 				</DropdownButton>
 				
 			

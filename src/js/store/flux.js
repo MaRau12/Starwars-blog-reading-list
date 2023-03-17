@@ -53,8 +53,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 				
 				console.log(aux)
-			  }
+			  },
             
+			  removeFavourite: (item) =>{
+				let aux = getStore().favourites;
+				aux.splice(item, 1)
+				setStore({favourites: aux})
+			  }
 			,
 			
 			showCharacterInfo: (id) => {
