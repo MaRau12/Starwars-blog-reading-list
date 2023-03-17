@@ -1,14 +1,25 @@
 
 import React from 'react';
+import { useContext } from 'react';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+
 import { Link } from 'react-router-dom';
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.js";
 
 
 
 function Cards(props) {
-                    
+
+  const { actions, store } = useContext(Context);
+       
+   
+
+ 
+
+            
   return (
 
    
@@ -27,7 +38,9 @@ function Cards(props) {
          
         </Link>
        
-        <Button variant="outline-warning"> <i className="fal fa-heart" onClick={() => favouriteHandler(item)}></i> </Button>{' '}
+        <Button variant="outline-warning"  onClick={() => actions.addFavourite({ id: props.id, name: props.name })} > 
+        <AiOutlineHeart/>
+         </Button>{' '}
       </Card.Body>
     </Card>
  
@@ -35,3 +48,18 @@ function Cards(props) {
 }
 
 export default Cards;
+
+/*
+
+Cards(props, {item})
+
+ const { actions, store } = useContext(Context);
+   const ToggleFavouriteHandler = () => actions.favouriteHandler(item)     
+    const isFavourite = store.favourites.find(el => el.name === item.name)
+
+
+    onClick={() => favouriteHandler(item)}
+
+
+    {isFavourite ? <AiFillHeart/> : <AiOutlineHeart/>}
+*/

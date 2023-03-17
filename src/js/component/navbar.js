@@ -6,20 +6,20 @@ import { Context } from "../store/appContext.js";
 
 export const Navbar = () => {
 
-	const { store, actions } = useContext(Context);
+
 
 	
 
 	return (<div className="">
 		<nav className="navbar navbar-light bg-light mb-3 ">
 	
-			{store.favourites.map((favs, item) =>{
-				return(
+			
+				
 					<DropdownButton id="dropdown-basic-button" title="Dropdown button" className="" >
-				<Dropdown.Item key={item}> {favs.name} </Dropdown.Item>
+				<Dropdown.Item > This item </Dropdown.Item>
 				</DropdownButton>
-				)
-			})}
+				
+			
 
 		
 
@@ -28,3 +28,18 @@ export const Navbar = () => {
 		</div>
 	);
 };
+
+
+/*
+
+	const { store, actions } = useContext(Context);
+
+
+	{store.favourites.map((favs, item) =>{
+
+return(
+		<Dropdown.Item key={item}> {favs.name} >
+)
+})}
+
+		*/

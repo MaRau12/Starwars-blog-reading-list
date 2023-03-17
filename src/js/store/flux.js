@@ -44,13 +44,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			
-            favouriteHandler: (item) => {
-             const store = getStore()
-			 const favourites = store.favourites
-			 
-			 setFavourites(current => [...current, item]);
-
-			},
+			addFavourite: (item) => {
+				let aux = getStore().favourites;
+				if (!aux.find(el => el.name === item.name)) {
+					aux.push(item);
+					setStore({ favourites: aux });
+				}
+				
+				
+				console.log(aux)
+			  }
+            
+			,
 			
 			showCharacterInfo: (id) => {
 				fetch("https://www.swapi.tech/api/people/" + id)
@@ -102,7 +107,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ vehicles: data.results }))
           .catch((error) => console.log(error));
 
-		 // {…store, people: data}
+		 
            },
 
 		   
@@ -127,3 +132,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
+
+
+/*
+
+if (isFavourite){ favourites = favourites.filter(el => el.name !== element.name); } 
+				else { }
+
+
+
+				favouriteHandler: (element) => {
+             const store = getStore()
+			 let favourites = store.favourites
+			
+			    const isFavourite = favourites.find(el => el.name === element.name)
+				if (isFavourite){ favourites = favourites.filter(el => el.name !== element.name); } 
+				else {  favourites.push(element);}
+				
+				console.log(store.favourites)
+
+				setStore({ favourites })
+				}
+
+*/
