@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
+import DetailCard from "../component/DetailCard.js";
 
 export const Characters = () => {
 
@@ -13,20 +14,11 @@ export const Characters = () => {
   }
 }, [params.id]);     
 
- 
- 
     const {store, actions} = useContext(Context)
   
     return (
         <div className="container">
-            <div className="row-cols-2">
-             <h1> show something {params.id} </h1>          
-                      <h1>{store.characterInfo.name}</h1>
-                      <h1>{store.characterInfo.gender}</h1>
-                      <h1>{store.characterInfo.height}</h1>
-            </div>
-            
-
+          <DetailCard name={store.characterInfo.name} id={params.id} description={store.characterInfo.description} gender={store.characterInfo.gender} height={store.characterInfo.height} birth_year={store.characterInfo.birth_year} url={'characters'} />
          </div>   
         
     )

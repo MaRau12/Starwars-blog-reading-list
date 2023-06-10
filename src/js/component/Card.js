@@ -14,17 +14,10 @@ import { Context } from "../store/appContext.js";
 function Cards(props) {
 
   const { actions, store } = useContext(Context);
-       
-   
-
- 
-
             
   return (
-
-   
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="https://boldfonts.com/wp-content/uploads/2021/02/Star-Wars-Font.jpg" />
+      <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/${props.url}/${props.id}.jpg`} />
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>
@@ -34,7 +27,7 @@ function Cards(props) {
         <Link to= {{
                 pathname: `/${props.url}/${props.id}`
               }}>
-         <Button variant="primary">Go somewhere</Button>
+         <Button variant="primary">See more!</Button>
          
         </Link>
        

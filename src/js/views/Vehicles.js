@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
+import DetailCard from "../component/DetailCard.js";
 
 export const Vehicles = () => {
 
@@ -19,12 +20,7 @@ export const Vehicles = () => {
   
     return (
         <div className="container">
-            <div className="row-cols-2">
-             <h1> show something {params.id} </h1>          
-                      <h1>{store.vehicleInfo.name}</h1>
-                      <h1>{store.vehicleInfo.manufacturer}</h1>
-                    
-            </div>
+            <DetailCard name={store.vehicleInfo.name} id={store.vehicleInfo.id} model={store.vehicleInfo.model} length={store.vehicleInfo.length} ></DetailCard>
             
 
          </div>   
