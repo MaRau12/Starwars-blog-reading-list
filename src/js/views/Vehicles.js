@@ -20,7 +20,7 @@ export const Vehicles = () => {
   
     return (
         <div className="container">
-            <DetailCard name={store.vehicleInfo.name} id={store.vehicleInfo.id} model={store.vehicleInfo.model} length={store.vehicleInfo.length} ></DetailCard>
+            <DetailCard name={store.vehicleInfo.name} id={store.vehicleInfo.id} model={store.vehicleInfo.model} length={store.vehicleInfo.length} url={'vehicles'} ></DetailCard>
             
 
          </div>   

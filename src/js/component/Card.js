@@ -31,7 +31,7 @@ function Cards(props) {
          
         </Link>
        
-        <Button variant="outline-warning"  onClick={() => actions.addFavourite({ id: props.id, name: props.name })} > 
+        <Button variant="outline-warning"  onClick={() => props.isInTheStore? actions. removeFavourite({ id: props.id, name: props.name, url: props.url}): actions.addFavourite({ id: props.id, name: props.name, url: props.url})} > 
         <AiOutlineHeart/>
          </Button>{' '}
       </Card.Body>

@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { isInStore } from './flux.js';
 import { Card } from "react-bootstrap";
 import "../../styles/home.css";
 
@@ -12,8 +13,11 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
 
+   const [checkFav, setcheckFav] = useState(false)
    const { store, actions } = useContext(Context);
-
+   useEffect(() => {
+   setcheckFav(isInStore())
+   }, []);
    return(
 	<div className="container">
 
@@ -34,7 +38,7 @@ export const Home = () => {
        <div className=" row"> 
        {store.planets.map((plan, i) =>{
          return(
-             <Cards key={i} name={plan.name} id={plan.uid} url={"planets"}/>
+             <Cards key={i} name={plan.name} id={plan.uid} url={"planets"} isInTheStore={checkFav}/>
          )
        })}   
          

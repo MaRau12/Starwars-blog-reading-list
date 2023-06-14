@@ -10,6 +10,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
     console.log(store.favourites)
+	const dropFavs = store.favourites
 	return (
 
 	<div className="">
@@ -21,9 +22,13 @@ export const Navbar = () => {
     Dropdown button
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+	{dropFavs.map((fav, index)=>{
+		return(
+		<div key={index}>
+			<li><a class="dropdown-item" href="#">{fav.name}</a></li>
+		</div>	
+		)}
+	)}
   </ul>
   </div>
 	
