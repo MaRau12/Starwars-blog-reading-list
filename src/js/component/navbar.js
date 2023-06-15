@@ -14,18 +14,20 @@ export const Navbar = () => {
 	return (
 
 	<div className="">
-		<nav className="navbar navbar-light bg-light mb-3 p-3">
+		<nav className="navbar navbar-dark bg-dark mb-3 p-3">
 	
        
 		<div className="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
+  <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Your Favorites
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 	{dropFavs.map((fav, index)=>{
 		return(
 		<div key={index}>
-			<li><a class="dropdown-item" href="#">{fav.name}</a></li>
+			       <Link to= {{
+                pathname: `/${fav.url}/${fav.id}` }}><li>  {fav.name}</li>     </Link>
+				
 		</div>	
 		)}
 	)}
@@ -70,5 +72,11 @@ return(
 		<Dropdown.Item key={item}> {favs.name} >
 )
 })}
+
+
+
+
+to= {{
+                pathname: `/${props.url}/${props.id}`
 
 		*/

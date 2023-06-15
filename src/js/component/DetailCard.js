@@ -11,6 +11,14 @@ import { Context } from "../store/appContext.js";
 function DetailCard(props) {
     const { actions, store } = useContext(Context);
 
+    const handleFavouriteClick = () => {
+      if (isFavourite) {
+        actions.removeFavourite({ id: props.id, name: props.name, url: props.url})
+      } else {
+        actions.addFavourite({ id: props.id, name: props.name, url: props.url});
+      }
+    };
+
     return(
         <div > 
         
@@ -53,7 +61,7 @@ function DetailCard(props) {
          
         </Link>
        
-        <Button variant="outline-warning"  onClick={() => actions.addFavourite({ id: props.id, name: props.name })} > 
+        <Button variant="outline-warning" onClick={() => handleFavouriteClick()} > 
         <AiOutlineHeart/>
          </Button>{' '}
       </Card.Body>

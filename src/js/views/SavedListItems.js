@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const SavedItems = (props) => {
     const { actions, store } = useContext(Context);
     return(
-        <div className="col-4">
+        <div className="col-3">
             <Link to= {{
                 pathname: `/${props.url}/${props.id}`
               }}>

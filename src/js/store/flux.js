@@ -19,7 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				planetInfo: [],
 				vehicleInfo: [],
 				favourites: [],
-   
+                imgStar: "https://cssanimation.rocks/demo/starwars/images/star.svg" ,
+				imgWars: "https://cssanimation.rocks/demo/starwars/images/wars.svg" ,
 		
 			demo:
 			[

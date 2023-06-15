@@ -14,7 +14,16 @@ import { Context } from "../store/appContext.js";
 function Cards(props) {
 
   const { actions, store } = useContext(Context);
-            
+  const isFavourite = store.favourites.find(fav => fav.name === props.name);
+  
+  const handleFavouriteClick = () => {
+    if (isFavourite) {
+      actions.removeFavourite({ id: props.id, name: props.name, url: props.url})
+    } else {
+      actions.addFavourite({ id: props.id, name: props.name, url: props.url});
+    }
+  };
+  
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/${props.url}/${props.id}.jpg`} />
@@ -31,7 +40,7 @@ function Cards(props) {
          
         </Link>
        
-        <Button variant="outline-warning"  onClick={() => props.isInTheStore? actions. removeFavourite({ id: props.id, name: props.name, url: props.url}): actions.addFavourite({ id: props.id, name: props.name, url: props.url})} > 
+        <Button variant="outline-warning"  onClick={() => handleFavouriteClick()} > 
         <AiOutlineHeart/>
          </Button>{' '}
       </Card.Body>

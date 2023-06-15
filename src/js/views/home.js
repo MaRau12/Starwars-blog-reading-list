@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import { isInStore } from './flux.js';
 import { Card } from "react-bootstrap";
 import "../../styles/home.css";
 
@@ -13,17 +12,23 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
 
-   const [checkFav, setcheckFav] = useState(false)
    const { store, actions } = useContext(Context);
-   useEffect(() => {
-   setcheckFav(isInStore())
-   }, []);
+  
    return(
-	<div className="container">
 
+
+
+<div className="container">
+
+<div className="stawars">
+   <img src={store.imgStar} alt="" id="star"></img>
+   <h2 id="title">THE READING BLOG</h2>
+   <img src={store.imgWars} alt="" id="wars"></img>
+
+</div>
 
 <h1 className="mx-3" >Characters</h1>
- <div className="row">  
+ <div className="row g-3">  
       {store.characters.map((char, index) =>{
          return(             
               <Cards key={index} name={char.name} id={char.uid} url={'characters'}
@@ -35,17 +40,17 @@ export const Home = () => {
 		   </div>
 		 
 		 <h1 className="mx-3" >Planets</h1>
-       <div className=" row"> 
+       <div className=" row g-3"> 
        {store.planets.map((plan, i) =>{
          return(
-             <Cards key={i} name={plan.name} id={plan.uid} url={"planets"} isInTheStore={checkFav}/>
+             <Cards key={i} name={plan.name} id={plan.uid} url={"planets"} />
          )
        })}   
          
 		  </div>
 
 		<h1 className="mx-3" >Vehicles</h1>
-       <div className=" row">  
+       <div className=" row g-3">  
 
        {store.vehicles.map((vec, j) =>{
          return(
@@ -58,11 +63,11 @@ export const Home = () => {
   
 <h1>Saved for later:</h1>
 
-<div className="row">
+<div className="row mt-5 mb-5">
    {store.favourites.map((fav, i)=>{
 
 return(
-<SavedItems key={i} name={fav.name} id={fav.uid} ></SavedItems>
+<SavedItems key={i} name={fav.name} id={fav.id} url={fav.url} ></SavedItems>
 )}
 )}
 
@@ -70,45 +75,9 @@ return(
   
 
    </div>
-
-   
-
-
 	
-
-
-
-	
-
 )
-
 
 }
 
 
-
-
-/*{store.characters.map((char) =>{
-   return(             
-        <Cards key={char.uid} name={char.name} />                
-      )
-})}
-
-
-
-xxxxxx
-   <h1 className="mx-3" >Saved</h1>
-       <div className=" row">  
-
-       {store.favorites.map((fav, i) =>{
-         return(
-            <Cards key={i} name={fav.name} id={fav.uid}/>
-         )
-       })}  
-        
- 
-
-		 </div>
-
-xxxxxxxxxxxxxx
-*/
